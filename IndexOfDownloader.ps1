@@ -1,5 +1,3 @@
-<##Requires -PSEdition Desktop#>
-
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName Microsoft.VisualBasic
 
@@ -32,7 +30,6 @@ Downloadverzeichnis auswählen
 $buttonPressed = $folderBrowseDialog.ShowDialog()
 
 if ($buttonPressed -eq "Cancel") {
-    $Url
     exit
 }
 
