@@ -8,6 +8,7 @@
 
 ## How do I use it?
 
+1. <a href="https://github.com/lazaroblanc/indexof-downloader/releases/latest">Download the latest release of the script</a>
 1. Run the script `DownloadIndexOf.ps1` via:
     1. `Right-Click` and selecting `Run with PowerShell`
     1. or by calling it from the command-line: `PS > DownloadIndexOf.ps1`
