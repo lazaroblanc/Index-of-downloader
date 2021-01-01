@@ -2,13 +2,16 @@
 
 <h1>"Index of" downloader</h1>
 <span>A simple PowerShell script to recursively download all files from an "Index of" page</span>
-
+<br><br>
+<a href="https://github.com/lazaroblanc/indexof-downloader/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/lazaroblanc/indexof-downloader">
+<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/lazaroblanc/indexof-downloader/total"></a>
+<a href="./UNLICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/lazaroblanc/indexof-downloader?color=informational"></a>
 <br>
 </div>
 
 ## How do I use it?
 
-1. <a href="https://github.com/lazaroblanc/indexof-downloader/releases/latest">Download the latest release of the script</a>
+1. <a href="https://github.com/lazaroblanc/indexof-downloader/releases/latest">Download the latest release</a>
 1. Run the script `DownloadIndexOf.ps1` via:
     1. `Right-Click` and selecting `Run with PowerShell`
     1. or by calling it from the command-line: `PS > DownloadIndexOf.ps1`
