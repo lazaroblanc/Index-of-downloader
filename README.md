@@ -12,9 +12,9 @@
 ## How do I use it?
 
 1. <a href="https://github.com/lazaroblanc/indexof-downloader/releases/latest">Download the latest release</a>
-1. Run the script `DownloadIndexOf.ps1` via:
+1. Run the script `IndexOfDownloader.ps1` via:
     - `Right-Click` and selecting `Run with PowerShell`
-    - the command-line: `.\DownloadIndexOf.ps1`
+    - the command-line: `.\IndexOfDownloader.ps1`
 
 
 <div align="center">
@@ -52,7 +52,7 @@ Now I can just give them this script with a URL to where the downloads are *et-v
 <tr>
 <td colspan=2>
 <h2>🐛 Bug reports & Feature requests 🆕</h2>
-If you've found a bug or want to request a new feature please <a href="https://github.com/lazaroblanc/discord-bot/issues/new">open a new <b>Issue</b></a>
+If you've found a bug or want to request a new feature please <a href="https://github.com/lazaroblanc/Index-of-downloader/issues/new">open a new <b>Issue</b></a>
 <br><br>
 </td>
 </tr>
