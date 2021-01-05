@@ -10,6 +10,8 @@
 </div>
 
 ## How do I use it?
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flazaroblanc%2Findex-of-downloader.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flazaroblanc%2Findex-of-downloader?ref=badge_shield)
+
 
 1. <a href="https://github.com/lazaroblanc/indexof-downloader/releases/latest">Download the latest release</a>
 1. Run the script `IndexOfDownloader.ps1` via:
@@ -71,3 +73,7 @@ Please see the <a href="./UNLICENSE"><b>License</b></a> for details
 </tr>
 </table>
 </div>
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flazaroblanc%2Findex-of-downloader.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flazaroblanc%2Findex-of-downloader?ref=badge_large)
