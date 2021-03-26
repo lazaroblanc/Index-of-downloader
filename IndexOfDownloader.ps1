@@ -1,10 +1,19 @@
+[CmdletBinding()]
+param (
+    $Url,
+    $Path
+)
+
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName Microsoft.VisualBasic
 
 # Prompt for Url
-$title = '"Index of" downloader'
-$msg = "Please enter URL"
-$Url = [Microsoft.VisualBasic.Interaction]::InputBox($msg, $title, "https://...")
+if (-not $Url) {
+    $title = '"Index of" downloader'
+    $msg = "Please enter URL"
+    $Url = [Microsoft.VisualBasic.Interaction]::InputBox($msg, $title, "https://...")
+}
+"Url: $Url" | Write-Verbose
 
 if ($Url.length -eq 0) { exit }
 if (-not [Uri]::IsWellFormedUriString($Url, 1)) {
@@ -22,6 +31,8 @@ $wgetParams = @(
     "--cut-dirs=$NoOfDirsToCut"
     "--quiet"
     "--show-progress"
+    "--restrict-file-names=ascii" # mode "nocontrol" unfortunately does not work on Windows so UTF-8 filenames are not possible atm :(
+    "--local-encoding=utf-8"
 )
 
 try { $statusCode = (Invoke-WebRequest -Uri $Url -ErrorAction Stop).StatusCode }
@@ -41,26 +52,29 @@ while ($statusCode -eq 401) {
 }
 
 # Prompt for download location
-$folderBrowseDialog = [System.Windows.Forms.FolderBrowserDialog]::new()
-$folderBrowseDialog.Description = @"
-Select download directory
-
-Downloadverzeichnis auswählen
-"@
-$buttonPressed = $folderBrowseDialog.ShowDialog()
-if ($buttonPressed -eq "Cancel") { exit }
-Set-Location $folderBrowseDialog.SelectedPath
+if (-not $Path) {
+    $folderBrowseDialog = [System.Windows.Forms.FolderBrowserDialog]::new()
+    $folderBrowseDialog.Description = "Select download directory`n`nDownloadverzeichnis auswählen"
+    $buttonPressed = $folderBrowseDialog.ShowDialog()
+    if ($buttonPressed -eq "Cancel") { exit }
+    Set-Location $folderBrowseDialog.SelectedPath
+}
+else {
+    Set-Location $Path
+}
+"Path: $(Get-Location)" | Write-Verbose
 
 # Only download wget if not already found on system
-$wget = "wget.exe"
-if (-not (Get-Command $wget -ErrorAction SilentlyContinue)) {
+$wget = ".\wget.exe"
+if (-not (Test-Path "$wget" -ErrorAction SilentlyContinue)) {
     if ([Environment]::Is64BitOperatingSystem) { $architecture = "64" }
     else { $architecture = "32" }
+    "Downloading wget" | Write-Verbose
     Invoke-WebRequest -Uri "https://eternallybored.org/misc/wget/1.20.3/$architecture/wget.exe" -OutFile ".\$wget"
     $cleanupWget = $true
-    $wget = ".\$wget"
 }
 
+"Running wget" | Write-Verbose
 & $wget $wgetParams --execute robots=off --reject index.htm* $Url
 
 if ($cleanupWget) { $wget | Remove-Item }
