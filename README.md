@@ -46,6 +46,8 @@ Now I can just give them this script with a URL to where the downloads are *et-v
 
 1. I've used *reasonable* arguments for `wget` in the script. There currently is no need to use different arguments nor is there a way to supply your own arguments to the `wget` instance in this script. Feel free to modify them in the script itself or add a way for you to pass them into the script via a parameter(s). In that case I would welcome a pull request! :) I however do not currently need this functionality.
 
+1. Non-ASCII filenames (like UTF-8) are not supported (wget limitation under Windows, unfortunately nothing I can do). Non-ASCII characters get escaped.
+
 <div align="center">
 <hr>
 <table>
