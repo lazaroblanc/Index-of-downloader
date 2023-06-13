@@ -15,7 +15,7 @@
 - Runs using Windows PowerShell v3.0 - v5.1 & PowerShell v6+
 
 ## How do I use it?
-1. Run the script `Index-Downloader.ps1` via:
+1. Run the script `Index-Downloader-v#.#.#.ps1` via:
     - `Right-Click` and selecting `Run with PowerShell`
 
 ## Limitations
