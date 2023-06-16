@@ -1,6 +1,6 @@
 <div align="center">
     
-# `Index-Downloader`
+# `Index Downloader`
 #### A simple PowerShell script used to recursively download files from a webserver's "Index of" page.
     
 <br>
