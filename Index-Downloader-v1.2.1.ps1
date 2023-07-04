@@ -1,4 +1,4 @@
-#v1.2.0
+#v1.2.1
 [CmdletBinding()]
 param (
     $Url,
@@ -7,10 +7,13 @@ param (
 
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName Microsoft.VisualBasic
+Add-Type -AssemblyName PresentationFramework, PresentationCore
 
 if (-not $Url) {
+    $window = New-Object System.Windows.Window
+    $title = 'Index Downloader'
     $msg = "Enter URL"
-    $Url = Read-Host -Prompt $msg
+    $Url = [Microsoft.VisualBasic.Interaction]::InputBox($msg, $title, "")
 }
 "Url: $Url" | Write-Verbose
 
@@ -49,8 +52,6 @@ while ($statusCode -eq 401) {
         $_ | Write-Error
     }
 }
-
-Add-Type -AssemblyName PresentationFramework, PresentationCore
 
 if (-not $Path) {
     $window = New-Object System.Windows.Window
