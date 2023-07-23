@@ -7,6 +7,7 @@
     
 </div>
 
+
 ## Features & Compatibility
 - uses `wget` to retrieve files
 - uses GUI elements for the output selection
@@ -17,6 +18,11 @@
 ## How do I use it?
 1. Run the script `Index-Downloader-v#.#.#.ps1` via:
     - `Right-Click` and selecting `Run with PowerShell`
+<br>
+
+<div align="center">
+<img src="https://i.imgur.com/ectqjd1.gif">
+</div>
 
 ## Limitations
 1. Works only on Windows.
